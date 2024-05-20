@@ -58,7 +58,8 @@ const Announcement = () => {
           >
             Upgrade
           </Link>
-          your Cadence contracts on Testnet before June 19th! All contracts must be updated to avoid breaking.
+          your Cadence contracts on Testnet before June 19th! All contracts must
+          be updated to avoid breaking.
         </Box>
       </Flex>
       <IconButton size="lg" onClick={toggleAnnouncement}>
