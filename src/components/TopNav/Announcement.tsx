@@ -50,16 +50,34 @@ const Announcement = () => {
       <Flex sx={styles.content}>
         <Box sx={styles.message}>🔧 Upgrade to Cadence 1.0 🔧</Box>
         <Box sx={styles.message}>
+          The highly anticipated
           <Link
             sx={styles.devLink}
             target="_blank"
             rel="noreferrer"
-            href="https://flow.com/upgrade/crescendo/migration"
+            href="https://flow.com/upgrade/crescendo"
           >
-            Upgrade
+            Crescendo
           </Link>
-          your Cadence contracts on Testnet before June 19th! All contracts must
-          be updated to avoid breaking.
+          network upgrade is coming soon with 20+ new
+          <Link
+            sx={styles.devLink}
+            target="_blank"
+            rel="noreferrer"
+            href="https://flow.com/upgrade/cadence-1"
+          >
+            Cadence 1.0
+          </Link>
+          features and
+          <Link
+            sx={styles.devLink}
+            target="_blank"
+            rel="noreferrer"
+            href="https://flow.com/upgrade/evm"
+          >
+            EVM
+          </Link>
+          equivalence.
         </Box>
       </Flex>
       <IconButton size="lg" onClick={toggleAnnouncement}>
