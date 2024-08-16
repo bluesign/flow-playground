@@ -6,6 +6,9 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d source-map --config webpack.config.js",
+    "dev:frontend": "npm start",
+    "dev:serverless": "vercel dev",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:serverless\"",
     "build": "webpack --mode=production",
     "graphql:codegen": "npx graphql-codegen --config codegen.yml",
     "test": "echo Tests command not implemented.",
@@ -47,6 +50,7 @@
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
     "handlebars-loader": "^1.7.2",
+    "http-proxy-middleware": "^3.0.0",
     "jszip": "^3.10.1",
     "markdown-to-jsx": "^7.1.7",
     "mixpanel-browser": "^2.45.0",

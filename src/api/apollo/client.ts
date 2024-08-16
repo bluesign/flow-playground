@@ -11,7 +11,6 @@ import { onError } from 'apollo-link-error';
 import { GET_APPLICATION_ERRORS } from './queries';
 import * as Sentry from '@sentry/react';
 import { GraphQLError, GraphQLErrorExtensions } from 'graphql';
-const PLAYGROUND_API = process.env.PLAYGROUND_API;
 const DEFAULT_DEBOUNCE_TIMEOUT = 1200; // Debounce time in ms
 const { detect } = require('detect-browser');
 const cache = new InMemoryCache();
@@ -76,7 +75,7 @@ const client = new ApolloClient({
       });
     }),
     new HttpLink({
-      uri: PLAYGROUND_API + '/query',
+      uri: '/graphql',
       credentials: 'include',
       fetch,
     }),
