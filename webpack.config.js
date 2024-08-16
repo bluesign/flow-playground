@@ -68,7 +68,7 @@ module.exports = {
     static: './dist',
     allowedHosts: 'all',
     historyApiFallback: true,
-    port: 3001,
+    port: 3000,
     client: {overlay: {warnings: false, errors: false}},
     devMiddleware: {
       writeToDisk: true,
