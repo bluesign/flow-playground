@@ -1,10 +1,11 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/**/*.js", "use": "@vercel/node" }
+    { "src": "api/**/*.js", "use": "@vercel/node" },
+    { "src": "dist/**/*", "use": "@vercel/static" }  
   ],
   "routes": [
     { "src": "/graphql", "dest": "/api/graphql" },
-    { "src": "/[^.]+", "dest": "/", "status": 200 }
+    { "src": "/(.*)", "dest": "/index.html" }  
   ]
 }

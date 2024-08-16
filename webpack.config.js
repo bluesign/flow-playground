@@ -68,17 +68,26 @@ module.exports = {
     static: './dist',
     allowedHosts: 'all',
     historyApiFallback: true,
-    port: 3000,
+    port: 3001,
     client: {overlay: {warnings: false, errors: false}},
     devMiddleware: {
       writeToDisk: true,
     },
     proxy: {
       '/graphql': {
-        target: 'https://api.v1.play.flow.com', // Backend API URL
-        changeOrigin: true,
-        pathRewrite: { '^/graphql': '/query' }, // Rewriting `/graphql` to `/query`
-        logLevel: 'debug', // Add this to see detailed proxy logs in the console
+        target: 'https://api.v1.play.flow.com', 
+        changeOrigin: true, 
+        pathRewrite: { '^/graphql': '/query' }, // Rewriting the path
+        logLevel: 'debug', 
+        onProxyRes: function (proxyRes, req, res) {
+          // Modify the Set-Cookie header if needed, to ensure it's passed back correctly
+          const cookies = proxyRes.headers['set-cookie'];
+          if (cookies) {
+            proxyRes.headers['set-cookie'] = cookies.map(cookie =>
+              cookie.replace('; Secure', '') // Optionally remove 'Secure' flag for local testing
+            );
+          }
+        },
       },
     },
   },
