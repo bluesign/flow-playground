@@ -193,12 +193,14 @@ const ControlPanel: React.FC<ControlPanelProps> = (props) => {
    * Otherwise, they will refer to old value of "project" prop and provide de-synced values
    */
   const setupLanguageClientListener = () => {
+   console.log("setup listener");
     if (clientOnNotification.current) {
       clientOnNotification.current.dispose();
     }
     clientOnNotification.current = languageClient.onNotification(
       CadenceCheckCompleted.methodName,
       async (result: CadenceCheckCompleted.Params) => {
+        console.log("result.valid:", result.valid);
         if (result.valid) {
           const params = await getParameters();
           const key = getActiveKey();
@@ -471,8 +473,10 @@ const ControlPanel: React.FC<ControlPanelProps> = (props) => {
     statusMessage = 'Please wait...';
   }
 
+  console.log("active:", active, languageClient)
   // EFFECTS ------------------------------------------------------------------
   useEffect(() => {
+    console.log("languageClient:", languageClient);
     if (languageClient) {
       setupLanguageClientListener();
     }

@@ -130,7 +130,7 @@ describe('Generator Related Unit Tests', () => {
 
   test('should return empty list of arguments from script with no arguments', () => {
     const template = `
-      pub fun main() {
+      access(all) fun main() {
         log("no args here")
       }
     `;
@@ -263,7 +263,7 @@ describe('Generator - Contracts', () => {
 describe('Generator - Scripts', () => {
   test('should create proper code - basic', () => {
     const template = `
-      pub fun main() {
+      access(all) fun main() {
         return "Hello, Jest"
       }
     `;
@@ -274,7 +274,7 @@ describe('Generator - Scripts', () => {
   });
   test('should create proper code - return type and getAccount call', () => {
     const template = `
-      pub fun main(): String {
+      access(all) fun main(): String {
         let Dave = getAccount(0x04)
         return "Hello, Jest"
       }

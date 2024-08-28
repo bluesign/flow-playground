@@ -116,7 +116,7 @@ module.exports = {
       },
     }),
     new webpack.EnvironmentPlugin({
-      'PLAYGROUND_API': 'https://api.v1.play.flow.com',
+      'PLAYGROUND_API': 'http://localhost:8080',
       'GA_TRACKING_ID': '',
       'MIXPANEL_TOKEN': '',
       'DEFAULT_SEO_IMAGE': '',

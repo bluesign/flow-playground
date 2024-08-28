@@ -43,6 +43,8 @@ export function createCadenceLanguageClient(callbacks: Callbacks) {
       return Disposable.create(() => {});
     },
     async write(msg: Message): Promise<void> {
+      console.log("->" , msg);
+
       callbacks.toServer(null, msg);
     },
     end() {},
@@ -62,7 +64,10 @@ export function createCadenceLanguageClient(callbacks: Callbacks) {
       return Disposable.create(() => {});
     },
     listen(dataCallback: DataCallback): Disposable {
-      callbacks.toClient = (message) => dataCallback(message);
+      callbacks.toClient = (message) => {
+        console.log("<-", message);
+        dataCallback(message);
+      }
       return Disposable.create(() => {});
     },
     dispose() {
